@@ -43,8 +43,14 @@ const App2 = () => {
           </View>
         </View>
         <View style={styles.infoContainer}>
-          <Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}} />
-
+          <Image
+            style={styles.avatar}
+            source={
+              githubData?.avatar_url
+                ? {uri: githubData?.avatar_url}
+                : require('./avatar.png')
+            }
+          />
           <Text style={styles.fullName}>{githubData?.name || ''}</Text>
           <Text style={styles.username}>@{githubData?.login || ''}</Text>
         </View>
